@@ -4,7 +4,7 @@
 
 <template>
   <v-container>
-    <h1>
+    <h1 class="mb-6 text-center">
       Monde Pokémon
     </h1>
   </v-container>
