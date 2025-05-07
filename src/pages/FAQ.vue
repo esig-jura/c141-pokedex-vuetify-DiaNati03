@@ -1,6 +1,20 @@
+<template>
+  <v-container>
+    <h1 class="mb-6 text-center">Foire Aux Questions (FAQ)</h1>
+
+    <v-expansion-panels>
+      <v-expansion-panel
+        v-for="element in faq"
+        :key="element.question"
+        :text="element.answer"
+        :title="element.question"
+      />
+    </v-expansion-panels>
+  </v-container>
+</template>
+
 <script setup>
-  import { ref } from 'vue'
-  const questionsreponses = [
+  const faq = ref([
     {
       question: "Qu'est-ce qu'un Pokédex ?",
       answer: 'Un Pokédex est un dispositif électronique qui répertorie et fournit des informations sur les différentes espèces de Pokémon. Notre application est une version numérique de cet outil.',
@@ -25,30 +39,8 @@
       question: "L'application est-elle mise à jour régulièrement avec de nouveaux Pokémon ?",
       answer: "Oui, nous nous efforçons de maintenir notre base de données à jour avec les derniers Pokémon découverts. Cependant, la fréquence des mises à jour peut varier en fonction des nouvelles sorties de jeux et d'informations officielles.",
     },
-  ]
+  ])
 </script>
-
-<template>
-
-  <v-container>
-    <h1 class="mb-6 text-center">Foire Aux Questions (FAQ)</h1>
-    <v-expansion-panels>
-      <v-expansion-panel
-        v-for="(item, index) in questionsreponses"
-        :key="index"
-        class="mb-6 pa-4"
-      >
-        <v-expansion-panel-title>
-          {{ item.question }}
-        </v-expansion-panel-title>
-        <v-expansion-panel-text>
-          {{ item.answer }}
-        </v-expansion-panel-text>
-      </v-expansion-panel>
-    </v-expansion-panels>
-  </v-container>
-
-</template>
 
 <style scoped>
 

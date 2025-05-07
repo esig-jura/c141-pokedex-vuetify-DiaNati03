@@ -36,4 +36,13 @@
 <script setup>
   // Importation du composant MenuPrincipal pour l'en-tête de l'application
   import MenuPrincipal from '@/components/AppHeader.vue'
+  import { usePokemonStore } from '@/stores/pokemonStore'
+  import { onMounted } from 'vue'
+
+  const pokemonStore = usePokemonStore()
+
+  onMounted(() => {
+    pokemonStore.loadFavorites()
+  })
+
 </script>

@@ -114,3 +114,25 @@ export const useAuthStore = defineStore('auth', {
     isAuthenticated: state => !!state.token,
   },
 })
+
+import { ref } from 'vue'
+
+export const useAuthStore = defineStore('authStore', () => {
+  const user = ref(null)
+
+  function login(username) {
+    user.value = username
+    localStorage.setItem('user', username)
+  }
+
+  function logout() {
+    user.value = null
+    localStorage.removeItem('user')
+  }
+
+  function init() {
+    user.value = localStorage.getItem('user')
+  }
+
+  return { user, login, logout, init }
+})
